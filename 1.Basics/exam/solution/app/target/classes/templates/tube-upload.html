@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MeTube</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+<div class="container-fluid">
+    #(navbar)
+    #(notification)
+    <hr class="my-2"/>
+    <div class="text-center mb-3">
+        <h1>Upload</h1>
+    </div>
+    <hr class="my-2">
+    <div class="container-fluid">
+        <div class="row justify-content-center col-md-6 mx-auto">
+            <div class="form-holder text-center">
+                <form class="form-inline" action="/tube/upload" method="POST">
+                    <fieldset>
+                        <div class="control-group">
+                            <label class="control-label h3 mb-2" for="title">Title</label>
+                            <div class="controls">
+                                <input type="text" id="title" name="title" placeholder="" class="input-xlarge" autofocus>
+                            </div>
+                        </div>
+                        <br/>
+                        <div class="control-group">
+                            <label class="control-label h3 mb-2" for="author">Author</label>
+                            <div class="controls">
+                                <input type="text" id="author" name="author" placeholder="" class="input-xlarge">
+                            </div>
+                        </div>
+                        <br/>
+                        <div class="control-group">
+                            <label class="control-label h3 mb-2" for="youtubeLink">Youtube Link</label>
+                            <div class="controls">
+                                <input type="text" id="youtubeLink" name="youtubeLink" placeholder="" class="input-xlarge">
+                            </div>
+                        </div>
+                        <br/>
+                        <div class="control-group">
+                            <label class="control-label h3 mb-2" for="description">Description</label>
+                            <div class="controls">
+                                <textarea id="description" name="description" placeholder="" class="input-xlarge" rows="4" cols="80" style="resize: none"></textarea>                            </div>
+                        </div>
+                        <br/>
+                        <div class="control-group">
+                            <div class="controls">
+                                <button class="btn btn-info">Upload</button>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+    <hr class="my-3"/>
+    #(footer)
+</div>
+</body>
+</html>

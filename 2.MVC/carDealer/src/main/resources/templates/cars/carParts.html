@@ -1,0 +1,35 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<div th:replace="~{fragments/head}"></div>
+
+<body>
+<div th:replace="~{fragments/header}"></div>
+<!--/*@thymesVar id="make" type="java.lang.String"*/-->
+<!--/*@thymesVar id="carWithParts" type="org.softuni.carDealer.domain.dtos.view.CarPartsView"*/-->
+<!--/*@thymesVar id="part" type="org.softuni.carDealer.domain.dtos.view.PartView"*/-->
+<div class="container">
+    <table class="table">
+        <thead>
+        <tr>
+            <th class="text-center">Make</th>
+            <th class="text-center">Model</th>
+            <th class="text-center">Travelled distance</th>
+            <th class="text-center">Parts</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:object="${carWithParts}">
+            <td class="text-center" th:text="*{getMake()}"></td>
+            <td class="text-center" th:text="*{getModel()}"></td>
+            <td class="text-center" th:text="*{getTravelledDistance()}"></td>
+            <td class="text-center">
+                <ul th:object="${part}" th:each="part: ${carWithParts.getParts()} ">
+                    <li class="list-unstyled" th:text="|${part.getName() +' - ' + part.getPrice()}lv|"></li>
+                </ul>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

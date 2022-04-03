@@ -1,0 +1,35 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<div th:replace="~{fragments/head}"></div>
+
+<body>
+<div th:replace="~{fragments/header}"></div>
+<!--/*@thymesVar id="part" type="org.softuni.carDealer.domain.dtos.view.PartView"*/-->
+<!--/*@thymesVar id="partViews" type="java.util.List"*/-->
+<div class="container">
+    <h2 class="text-center">All parts</h2>
+    <table class="table" >
+        <thead>
+        <tr>
+            <th class="text-center">Name</th>
+            <th class="text-center">Price</th>
+            <th class="text-center">Edit</th>
+            <th class="text-center">Delete</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:object="${part}" th:each="part: ${partViews}">
+            <td class="text-center" th:text="*{getName()}"></td>
+            <td class="text-center" th:text="*{getPrice()}"></td>
+            <td>
+                <a class="close" th:href="@{/parts/edit/{id}(id=*{getId()})}" aria-hidden='true'>Edit</a>
+            </td>
+            <td>
+                <a class="close" th:href="@{/parts/delete/{id}(id=*{getId()})}" aria-hidden='true'>Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<div th:replace="~{fragments/head}"></div>
+
+<body>
+<div th:replace="~{fragments/header}"></div>
+<!--/*@thymesVar id="totalCustomerSalesView" type="org.softuni.carDealer.domain.dtos.view.TotalCustomerSalesView"*/-->
+<div class="container">
+    <h2 class="text-center" th:text="|Total sales by ${totalCustomerSalesView.getName()}|"></h2>
+    <table class="table">
+        <thead>
+        <tr>
+            <th class="text-center">Bought Cars</th>
+            <th class="text-center">Total MoneySpent</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:object="${totalCustomerSalesView}">
+            <td class="text-center" th:text="*{getBoughtCars()}"></td>
+            <td class="text-center" th:text="|*{getSpentMoney()}lv|"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

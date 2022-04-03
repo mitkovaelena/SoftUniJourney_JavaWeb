@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MeTube</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+<div class="container-fluid">
+    #(navbar)
+    <hr class="my-2"/>
+    <div class="text-center mb-3">
+        <h4 class="text-info">@$(username)</h4>
+        <h5 class="text-info">($(email))</h5>    </div>
+    <hr class="my-3">
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <table class="table">
+                <colgroup><col width="60">
+                    <col width="210">
+                    <col width="100">
+                    <col width="100">
+                </colgroup>
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Author</th>
+                    <th scope="col">Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                <!--<tr>-->
+                    <!--<th scope="row">1</th>-->
+                    <!--<td>Mark</td>-->
+                    <!--<td>Otto</td>-->
+                    <!--<td><a href="/tube/details/{id}">Details</a></td>-->
+                <!--</tr>-->
+                $(uploadedTubes)
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <hr class="my-3"/>
+    #(footer)
+</div>
+</body>
+</html>

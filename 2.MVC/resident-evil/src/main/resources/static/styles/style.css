@@ -1,0 +1,24 @@
+.navbar-wine {
+    background-color: #960C4E;
+}
+
+.nav-link, .nav-item {
+    color: rgba(255,255,255,0.6);
+}
+
+.navbar-brand {
+    color: white;
+}
+
+.nav-link:focus,
+.nav-link:hover,
+.nav-item:focus,
+.nav-item:hover,
+.navbar-brand:focus,
+.navbar-brand:hover{
+    color: rgba(255,255,255,0.8);
+}
+
+.invalid-message {
+    color: red !important;
+}

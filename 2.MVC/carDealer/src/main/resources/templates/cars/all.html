@@ -1,0 +1,33 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<div th:replace="~{fragments/head}"></div>
+
+<body>
+<div th:replace="~{fragments/header}"></div>
+<!--/*@thymesVar id="car" type="org.softuni.carDealer.domain.dtos.view.CarMakeView"*/-->
+<!--/*@thymesVar id="orderedCars" type="java.util.List"*/-->
+<div class="container">
+    <h2 class="text-center">All cars ordered by model and travelled distance</h2>
+    <table class="table">
+        <thead>
+        <tr>
+            <th class="text-center">Make</th>
+            <th class="text-center">Model</th>
+            <th class="text-center">Travelled distance</th>
+            <th class="text-center">View</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:object="${car}" th:each="car: ${orderedCars}">
+            <td class="text-center" th:text="*{getMake()}"></td>
+            <td class="text-center" th:text="*{getModel()}"></td>
+            <td class="text-center" th:text="*{getTravelledDistance()}"></td>
+            <td>
+                <a class="close" th:href="@{/cars/{id}/parts(id=*{getId()})}" aria-hidden='true'>View</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

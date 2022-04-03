@@ -1,0 +1,37 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<div th:replace="~{fragments/head}"></div>
+
+<body>
+<div th:replace="~{fragments/header}"></div>
+<!--/*@thymesVar id="customer" type="org.softuni.carDealer.domain.dtos.view.CustomerView"*/-->
+<!--/*@thymesVar id="orderedCustomers" type="java.util.List"*/-->
+<div class="container">
+    <h2 class="text-center">All customers ordered by birth date</h2>
+    <table class="table" >
+        <thead>
+        <tr>
+            <th class="text-center">Name</th>
+            <th class="text-center">Birth date</th>
+            <th class="text-center">Young driver</th>
+            <th class="text-center">View</th>
+            <th class="text-center">Edit</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:object="${customer}" th:each="customer: ${orderedCustomers}">
+            <td class="text-center" th:text="*{getName()}"></td>
+            <td class="text-center" th:text="*{getBirthDateString('dd/MM/yyyy')}"></td>
+            <td class="text-center" th:text="*{getYoungDriver()} ? 'yes' : 'no'"></td>
+            <td>
+                <a class="close" th:href="@{/customers/{id}(id=*{getId()})}" aria-hidden='true'>View</a>
+            </td>
+            <td align="center">
+                <a class="close" th:href="@{/customers/edit/{id}(id=*{getId()})}" aria-hidden='true'>Edit</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

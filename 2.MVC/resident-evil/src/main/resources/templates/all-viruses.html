@@ -1,0 +1,32 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<div th:replace="~{fragments/head}"></div>
+<body>
+<div th:replace="~{fragments/header}"></div>
+    <div class="container">
+        <h2 class="mb-4 mt-4">Spread new Virus!</h2>
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Magnitude</th>
+                <th scope="col">Released On</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:object="${virus}" th:each="virus, iterationStatus: ${viruses}">
+                <th scope="row" th:text="${iterationStatus.count}"></th>
+                <td th:text="*{getName()}"></td>
+                <td th:text="*{getMagnitude()}"></td>
+                <td th:text="${#dates.format(virus.getReleasedOn(), 'dd/MM/yyyy')}"></td>
+                <td><a th:href="@{/viruses/edit/{id}(id=*{getId()})}" class="btn btn-primary">Edit</a></td>
+                <td><a th:href="@{/viruses/delete/{id}(id=*{getId()})}" class="btn btn-danger">Delete</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
